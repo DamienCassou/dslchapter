@@ -1,0 +1,11 @@
+/auto
+/*.aux
+/*.log
+/*.pdf
+/*.synctex.gz
+/*.bbl
+/*.blg
+/*.fff
+/*.ent
+/*.ttt
+/DSLRobChapter.out
