@@ -1,15 +1,13 @@
-\documentclass[man]{apa}
+\documentclass[book]{apa}
 %% More information about the APA style are available here: ftp://ftp.comp.hkbu.edu.hk/pub/TeX/CTAN/macros/latex/contrib/apa/apacls.html
 
 \title{Trends in Domain-Specific Languages for Robotics System}
 \fourauthors{Damien Cassou}{Christian Schlegel}{Ulrik P. Schultz}{Serge Stinckwich}
 \fouraffiliations{HPI, University of Postdam, Germany}{Hochschule Ulm, Germany}{University of Southern Denmark, Denmark}{UMMISCO, UMI 209\\IRD/IFI/Vietnam National University}
 
-\abstract{This is an example of a minimal ``manuscript'' using the \LaTeX\ apa.cls document class to typeset manuscripts according to the Americal Psychological Association (APA) manual, fifth edition.}
+\abstract{The abstract should be here.}
 
-\acknowledgements{Written at the request of the Prac\TeX\ journal editors.
-
-Comments may be sent to the author at protopap@ilsp.gr.}
+\acknowledgements{Bla bla ...}
 
 \shorttitle{Trends in DSL for Robotics System}
 \rightheader{Trends in DSL for Robotics System}
@@ -17,7 +15,15 @@ Comments may be sent to the author at protopap@ilsp.gr.}
 
 \begin{document}
 \maketitle                            
-Here goes the text of the article. Note that the content begins immediately after \texttt{maketitle} and there is no blank line between the title command and the article text. This first section of the article is typically the introduction and, according to APA style, should not bear a section heading.\footnote{That is, there is no ``Introduction'' section.} Subsequent sections, however, are titled according to the psychological conventions.
+One of the dreams of humanity since the ancient time is to be able to create machines that are skilled and intelligent. This dream is becoming true with robotics [1] which has made unquestionable progresses in the last decades. Robotics are already making a considerable impact in everyday life from industrial manufacturing to health care, transportation, and exploration of unsafe environments for humans like deep space or nuclear plants. Tomorrow, robots are envisioned to be as pervasive as today’s personal computer. The improvements in energy storage now allow a simple and light battery to power demanding sensors and actuators for hours. The availability of inexpensive and highly integrated embedded application processors, a consequence of the massive market of mobile phones and game devices like Microsoft’s Kinect, has brought advanced capabilities to mobile robots, such as high-resolution vision. Moreover, the improvements in electronics and hardware have lowered the cost of sensors and actuators, and have improved their quality and reliability. The combination of all these advances has thus led to affordable robot hardware and allowed sophisticated control software. 
+
+Despite all these advances, robotics systems are still difficult to design and deploy. This originates from the fact that robotics systems need to control diverse sensors and actuators in real time mode, in the face of significant uncertainty and noise. These systems must achieve their tasks while monitoring for, and reacting to, unanticipated situations. Doing all this concurrently and asynchronously adds immensely to system complexity. Adding to this complexity, robotics systems are often embedded in resource-constraint systems which are difficult to program because of lacking suitable tools and abstractions. Indeed, most of the available tools are quite low-level (C-like). Finally, all robotics systems contain orthogonal variabilities that further add to the overall complexity. For example, moving a robot can be done through either a differential or omnidirectional drive depending on the embedded hardware, and a robot’s temporal scope can range from a millisecond for feedback control to hours for mapping an environment.
+
+This complexity makes robotics system software difficult to adapt and reuse in the context of different robots and scenarios. As a result, commercial robotics systems and research prototypes have either been limited to trivial tasks, such as obstacle detection, or have been restricted to certain kinds of tasks, hardware, or environment. Several software engineering approaches have been proposed to lower the complexity of robotics systems [2]. These approaches include robotics software frameworks (e.g., CLARATy [12]), robotics middleware systems (e.g., ROS [8]), component-based software engineering for robotics [15] and model-driven software engineering for Robotics (e.g., OMG RTC [9], SmartSoft [10]). All these approaches apply and tailor general-purpose and established principles of lowering complexity to robotics needs and come up with domain-specific extensions.
+
+Domain-Specific Languages (DSLs) [3] and Model-Driven Architecture are emerging areas of interest in the robotics research community (see also the recent workshops on these topics [4], [7]). Both have been instrumental for resolving complex issues in a wide range of domains, including distributed and modular robotics, control, and vision. A DSL is a language dedicated to a particular problem domain offering specific notations and abstractions to increase developers productivity and collaboration. Models offer high-level ways for developers to specify the functionality of their system at the right level of abstraction. Robotics systems blend hardware and software in a way that raises many crosscutting concerns that general-purpose programming languages have traditionally had problems with. DSLs and models offer a powerful and systematic way to overcome this problem, enabling the programmer to quickly and precisely implement novel software solutions to complex problems within the robotics domain.
+
+The main purpose of this chapter is to understand why domain-specific languages are interesting in the context of robotics. We will first identify existing DSLs in the robotics community (organized around the main concerns of robotics as listed in [1]). We will then describe some features of DSLs that are particularly useful for the robotics domain such as run-time changes [6] and multiple-DSL integration [4]. We underpin these by robotics examples like URDF (descriptions of robot physical structures [13]), task coordination [11], and model-driven software development for robotics (SmartSoft [14]). Finally we will outline some research perspectives in this domain.
 
 \section{Existing Robotic Domain-Specific Languages}
 We will first identify existing DSLs in the robotics community (organized around the main concerns of robotics as listed in \cite{SpringerHandbook:2008fk}).
@@ -31,47 +37,6 @@ ROS contains an URDF parser that allows to build a C++ model from an XML file.
 xacro is an XML macro-language suitable to build large URDF files.
 
 \subsubsection{Paper\cite{Brugali:ec}}
-
-\section{Experiment 1} 
-Manuscripts in APA style often contain descriptions of experiments.  The APA manual specifications for referring to experiments are to use a lowercase ``e'' when speaking generally, as in the previous phrase, but an uppercase ``E'' when mentioning a particular experiment (as in the following phrase), such as Experiment~1.
-
-\subsection{Method}
-The ``method'' is a subsection of the experimental presentation in which all the details of setting up and conducting the experiment are described.  There a number of more or less standard components to a method, shown below.
-\subsubsection{Participants}
-Psychological experiments are conducted with participants, usually humans. Note that these used to be called ``subjects'' but apparently APA now finds it inappropriate to refer to people with this term.  Here we mention how many participants there were, their ages and other information about them.
-\subsubsection{Apparatus}
-Sometimes it is necessary to give the apparatus a special section.
-\subsubsection{Stimuli}
-What the subjects saw, heard, or felt.
-\subsubsection{Procedure}
-What happened to the poor subjects.
-\subsection{Results}
-In this subsection, one shows numbers and statistical analyses.  Students are especially unlikely to read this section, but seasoned researchers often avoid it in the first reading, especially if the article is not of particular interest for their own research.
-\subsection{Discussion}
-If the results of the experiment mean anything, this is the place to talk about it. 
-
-\section{Experiment 2}
-Usually one experiment is not enough to convince anyone; you need additional control experiments to make your point.
-\subsection{Method}
-The method can be the same as for the previous experiment, since here we are simply interested in showing the structure of the manuscript.
-\subsection{Results \& Discussion}
-This is a good point to show an example of a table following APA conventions. Note that we don't use any vertical separators and that columns can be grouped with partial horizontal lines.  
-Also keep in mind that the caption must precede the table. The label is entirely optional, but useful for referring to the table in the text, for example this one would be Table~\ref{tab:tab1}.
-\begin{table}[tbp]
-\caption{Some numbers that could be experimental data.}
-\label{tab:tab1}
-\begin{tabular}{lcc}\hline
-          & \multicolumn{2}{c}{Factor 2} \\ \cline{2-3}
-Factor 1  & Condition A  & Condition B   \\ \hline
-First     & 586 (231)    & 649 (255)     \\
-          &    2.2       &    7.5        \\
-Second    & 590 (195)    & 623 (231)     \\
-          &    2.8       &    2.5        \\ \hline
-\end{tabular}
-\end{table}
-
-\section{General Discussion}
-In psychological articles there is usually some point to the whole experimental exercise, and in the end we get to discuss how important it all is.  Although literature is supposed to have been covered in the introduction, for this example we can illustrate the use of bibliographic citations in this final section \cite{art1}. The accompanying package ``apacite'' by Erik Meijer provides everything an APA-style writer needs for citations, such as in-text citations in which one can claim that \citeA{boo1} mentioned or failed to mention something.
 
 \bibliography{DSLRobChapter}
 
