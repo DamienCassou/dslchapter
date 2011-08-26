@@ -31,7 +31,7 @@ The main purpose of this chapter is to understand why domain-specific languages 
 \section{Existing Robotics Domain-Specific Languages} % (fold)
 \label{sec:Existing_Robotics_Domain-Specific_Languages}
 We will first identify existing DSLs in the robotics community (organized around the main concerns of robotics as listed in \cite{SpringerHandbook:2008fk}).
-\subsection{Robot Physical Structures}
+\subsection{Robot Physical Structures and kinematics}
 Part B "Robot Structures" of Springer Handbook of Robotics.
 
 \subsubsection{Unified Robot Description Format (URDF)\footnote{http://www.ros.org/wiki/urdf}}
@@ -42,6 +42,29 @@ xacro is an XML macro-language suitable to build large URDF files.
 
 \subsubsection{Paper\cite{Brugali:2007uq}}
 
+\subsection{Architecture and control}
+\begin{itemize}
+\item Component-based approach for robotics: OROCOS script language, ROCK\footnote{http://rock-robotics.org/} \cite{Joyeux:2011fk}
+\item Orchestration languages for robotics: urbiscript\cite{Baillie:2005},
+\item FRP (Functional reactive programming)\footnote{\url{http://www.cs.jhu.edu/~hager/Public/ICRAtutorial/HagerPeterson-FRP/ICRA02-tutorial.pdf}}: Functional Robotics (FROB)\cite{Hager:1999fk}, \cite{Peterson:1999lk}, \cite{Pembeci:2002fc}
+\item \cite{Thiry:2008ys}
+\end{itemize}
+\subsection{Sensing and perception}
+Uncertainty, probabilistic robotics: Lambda0, \cite{Thrun:2000}
+\subsection{Visualisation and simulation}
+Player-Stage configuration files
+\subsection{Distributed and networked robotics}
+\begin{itemize}
+\item MDL (Motion Description Language): \cite{Martin:2008vn}, \cite{Martin:2010uq}
+\item PRONTO (spatial computing): \cite{Bachrach:2008bs}
+\item cooperative robotics: \cite{Welborn:2005dg}
+\item reconfigurable robotics: \cite{Schultz:2007le}
+\end{itemize}
+\subsection{Planning}
+\begin{itemize}
+\item PDDL (Planning Domain Definition Language)
+\item Smach\footnote{http://www.ros.org/wiki/smach} (finite state machines)
+\end{itemize}
 % section Existing_Robotics_Domain-Specific_Languages (end)
 
 \bibliography{DSLRobChapter}
