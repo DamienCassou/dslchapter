@@ -1,7 +1,33 @@
 \subsection{Architecture and control}
+
+The Orocos tool chain is a suite of tools allowing developers to
+create complex real-time robotics applications using software
+components. The Orocos real-time toolkit (RTT) is a C++ programming
+framework included in the tool chain. Among other things RTT provides
+a home-made scripting language and state machine implementation to let
+developers implement components without recompiling. Recently, the RTT
+developers have replaced their home-made scripting language by a new
+one based on Lua. According to~\cite{Klotzbucher:2010fk} Lua provides
+a set of features that makes it a good scripting language in the
+context of real-time robotics systems: indeed, Lua provides advanced
+control on the memory allocation and garbage collection. Lua is also
+seen as a good vehicle to write embedded DSLs as it is dynamically
+typed, can execute an expression embedded within a string, and provide
+a generic compound type. Lua enabled the RTT developers to design a
+more powerful state machine implementation as an embedded DSL within
+Lua.
+
 \begin{itemize}
-\item Component-based approach for robotics: OROCOS RTT-LUA\cite{Klotzbucher:2010fk}, ROCK\footnote{\url{http://rock-robotics.org/}} \cite{Joyeux:2011fk}
-\item Orchestration languages for robotics: urbiscript\cite{Baillie:2005},
-\item FRP (Functional reactive programming)\footnote{\url{http://www.cs.jhu.edu/\~{}hager/Public/ICRAtutorial/HagerPeterson-FRP/ICRA02-tutorial.pdf}}: Functional Robotics (FROB)\cite{Hager:1999fk}, \cite{Peterson:1999lk}, \cite{Pembeci:2002fc}
+\item Component-based approach for robotics: OROCOS
+  RTT-LUA\cite{Klotzbucher:2010fk},
+  ROCK\footnote{\url{http://rock-robotics.org/}} \cite{Joyeux:2011fk}
+\item Orchestration languages for robotics:
+  urbiscript\cite{Baillie:2005},
+\item FRP (Functional reactive
+  programming)\footnote{\url{http://www.cs.jhu.edu/\~{}hager/Public/ICRAtutorial/HagerPeterson-FRP/ICRA02-tutorial.pdf}}:
+  Functional Robotics (FROB)\cite{Hager:1999fk},
+  \cite{Peterson:1999lk}, \cite{Pembeci:2002fc}
 \item Misc \cite{Thiry:2008ys}, \cite{Proetzsch:2010vn}
 \end{itemize}
+
+% LocalWords:  Orocos RTT Lua DSL DSLs
