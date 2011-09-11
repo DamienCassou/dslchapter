@@ -5,28 +5,29 @@
 The Orocos tool chain is a suite of tools allowing developers to
 create complex real-time robotics applications using software
 components. The Orocos real-time toolkit (RTT) is a C++ programming
-framework included in the tool chain. Among other things RTT provides
-a home-made scripting language and state machine implementation to let
-developers implement components without recompiling. Recently, the RTT
-developers have replaced their home-made scripting language by a new
-one based on Lua~\cite{Klotzbucher:2010fk}. According to the RTT
-developers Lua provides a set of features that makes it a good
-scripting language in the context of real-time robotics systems:
-indeed, Lua provides advanced control on the memory allocation and
-garbage collection. Lua is also seen as a good vehicle to write
-embedded DSLs as it is dynamically typed, can execute an expression
-embedded within a string, and provide a generic compound type.
+framework included in the tool chain. Among other features RTT
+provides a home-made scripting language and state machine
+implementation to let developers implement components without
+recompiling. Recently, the RTT developers have replaced their
+home-made scripting language by a new one based on
+Lua~\cite{Klotzbucher:2010fk}. According to the RTT developers Lua
+provides a set of features that makes it a good scripting language in
+the context of real-time robotics systems: indeed, Lua provides
+advanced control on the memory allocation and garbage collection. Lua
+is also seen as a good vehicle to write embedded DSLs as it is
+dynamically typed, can execute an expression embedded within a string,
+and provide a generic compound type.
 
 Lua enabled the RTT developers to design a more powerful state machine
 implementation as an embedded DSL within Lua. Implementing this DSL
 requires using expressive language features of Lua which results in
 memory allocation at run-time. As this is undesirable in a tight
-real-time environment, RTT developers present various strategies to
-avoid this issue. One of these strategies is to use a real-time
-allocator associated with an estimation of the total amount of memory
-required. The second strategy is to pre-allocate a block of memory
-reserved for emergencies when the required memory exceed the
-estimation: In such an emergency, this block of memory is used to stop
+real-time environment RTT developers present strategies to avoid this
+issue. One of these strategies is to use a real-time allocator
+associated with an estimation of the total amount of memory required.
+The second strategy is to pre-allocate a block of memory reserved for
+emergencies when the required memory exceed the estimation: During
+such an emergency, the RTT framework uses this block of memory to stop
 the robot in a safe manner and to make adjustments or perform manual
 garbage collection.
 
@@ -36,9 +37,8 @@ machine implementation~\cite{Klotzbucher:2010fk}. First, their
 approach avoids premature optimizations by prototyping functionality
 in a high-level language. Second, the use of Lua allows for
 portability of component scripts and state machines into other
-frameworks. Finally, robustness is improved as programming errors in
-scripts are limited to the respective interpreter.
-
+frameworks. Finally, the approach increases robustness as programming
+errors in scripts are limited to the respective interpreter.
 
 \begin{itemize}
 \item Component-based approach for robotics: OROCOS
