@@ -1,5 +1,7 @@
 \subsection{Architecture and control}
 
+\newcommand{\ct}[1]{\texttt{#1}}
+
 \subsubsection{OROCOS RTT-Lua}
 
 The Orocos tool chain is a suite of tools allowing developers to
@@ -40,12 +42,61 @@ portability of component scripts and state machines into other
 frameworks. Finally, the approach increases robustness as programming
 errors in scripts are limited to the respective interpreter.
 
+\subsubsection{URBI}
+
+Each robot comes with its own programming language interface. From
+this observation Baillie~\cite{Baillie:2005} developed a universal
+robotic low-level programming language named URBI. This DSL does not
+impose any philosophy or architecture on the developer. Instead, URBI
+is an imperative language which emphasizes event programming and
+parallelism.
+
+In URBI, reading a sensor or controlling an actuator is respectively
+done by reading a variable or writing into one. Where URBI
+distinguishes itself is by its use of \emph{modificators} that affect
+how a variable is written. The following instruction (taken
+from~\cite{Baillie:2005}) commands a robot's head pan to reach the
+value 80 degrees in 4500ms:
+
+\begin{verbatim}
+headPan.val = 80 time:4500;
+\end{verbatim}
+
+With the \ct{time} modificator, URBI progressively changes the value
+of a variable from its current value to its target value within the
+specified time. Other modificators allow to specify, for example, a
+speed at which a particular value is changed or a sinusoidal
+oscillation around a value with a particular period and amplitude.
+
+Additionally URBI proposes four operators to control how a set of
+instructions is executed (in strict sequence, in strict parallel, in
+flexible sequence, and in flexible parallel). These operators can also
+be attached to loops: for example \ct{for \&} starts all iterations of
+the loop in parallel.
+
+Executing multiple instructions in parallel can potentially result in
+conflicts when two instructions change the same variable. URBI
+proposes six strategies to control the result of conflicting
+assignment. % For example, one such strategy is called \ct{mix} and
+% allows to average the conflicting assignments. As a result, a developer
+% can write the following code to average the values of an array:
+
+% \begin{verbatim}
+% blend(mix) m;
+% for & (i=0;i<10;i++)
+%   m = tab[i];
+% \end{verbatim}
+For example, the \ct{add} strategy can be used to generate a turning
+behavior while a walk is performed or to play two sounds at the same
+time.
+
+According to Baillie, all these features of URBI allow developers to
+write programs more quickly and more efficiently, and in a portable way.
+
+
 \begin{itemize}
-\item Component-based approach for robotics: OROCOS
-  RTT-LUA\cite{Klotzbucher:2010fk},
+\item Component-based approach for robotics: 
   ROCK\footnote{\url{http://rock-robotics.org/}} \cite{Joyeux:2011fk}
-\item Orchestration languages for robotics:
-  urbiscript\cite{Baillie:2005},
 \item FRP (Functional reactive
   programming)\footnote{\url{http://www.cs.jhu.edu/\~{}hager/Public/ICRAtutorial/HagerPeterson-FRP/ICRA02-tutorial.pdf}}:
   Functional Robotics (FROB)\cite{Hager:1999fk},
@@ -53,4 +104,4 @@ errors in scripts are limited to the respective interpreter.
 \item Misc \cite{Thiry:2008ys}, \cite{Proetzsch:2010vn}
 \end{itemize}
 
-% LocalWords:  Orocos RTT Lua DSL DSLs
+% LocalWords:  Orocos RTT Lua DSL DSLs URBI modificator
