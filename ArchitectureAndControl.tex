@@ -93,6 +93,35 @@ time.
 According to Baillie, all these features of URBI allow developers to
 write programs more quickly and more efficiently, and in a portable way.
 
+\subsubsection{Frob}
+
+Frob is a domain-specific language, embedded in Haskell, for
+functional robotics\cite{Hager:1999fk}. Frob provides a framework for
+rapid prototyping and software reusability. To do so, the framework
+includes two essential abstractions, \emph{behaviors} and
+\emph{events}, and allow developers to build new abstractions on top
+of these two. These two abstractions form the basis for a functional
+reactive programming style. A behavior is an abstraction for a
+function over continuous time. For example, a behavior can define a
+wall-following algorithm. The syntax used to define behaviors is very
+similar to the syntax used to define mathematical equations which
+makes behaviors concise and manipulable by domain experts. An event is
+used to control the execution of a behavior. For example, the
+reception of a timeout event can stop a wall-following algorithm. From
+these two abstractions developers are invited to create new ones that
+more closely relate to the robotics applications they want to develop.
+As an example, Hager and Peterson~\cite{Peterson:1999lk} define the
+\emph{task} abstraction: a task is a behavior that terminates on an
+event and returns a value. Frob also proposes functions, called
+transformations, that creates a new task from an existing one by
+combining it with a new event or behavior. In addition, the authors
+show how new architectural styles, such as the subsumption
+architecture, can be created on top of Frob. With these abstractions
+and Haskell features to manipulate functions, Hager and Peterson
+believe that Frob makes developing, testing, and executing robotics
+application easy.
+
+
 
 \begin{itemize}
 \item Component-based approach for robotics: 
@@ -104,4 +133,5 @@ write programs more quickly and more efficiently, and in a portable way.
 \item Misc \cite{Thiry:2008ys}, \cite{Proetzsch:2010vn}
 \end{itemize}
 
-% LocalWords:  Orocos RTT Lua DSL DSLs URBI modificator
+% LocalWords:  Orocos RTT Lua DSL DSLs URBI modificator Hager Frob
+%  LocalWords:  subsumption
