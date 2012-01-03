@@ -1,4 +1,4 @@
-\documentclass[doc]{apa}
+\documentclass[jou]{apa}
 %% More information about the APA style are available here: ftp://ftp.comp.hkbu.edu.hk/pub/TeX/CTAN/macros/latex/contrib/apa/apacls.html
 
 \title{Trends in Domain-Specific Languages for Robotics System}
@@ -60,6 +60,94 @@ Player-Stage configuration files\cite{Collett:2005bq}
 \item PDDL (Planning Domain Definition Language)
 \item Smach\footnote{\url{http://www.ros.org/wiki/smach}} (finite state machines)
 \end{itemize}
+
+\subsection{SmartTCL}
+
+{\sc SmartTCL} \cite{schlegel-smarttcl} is a task coordination language for robotics. Task 
+coordination is needed in robotics to manage the huge amount of execution variants occuring 
+due to open-ended environments. {\sc SmartTCL} supports hierarchical task representations.
+At run-time, a task-tree is dynamically created and modified depending on situation and
+context. It comprises three constructs: \mbox{(i) {\em Task Coordination Blocks (TCB)}},
+\mbox{(ii) {\em rules}} for contingency handling and \mbox{(iii) {\em event-handler}}
+which are associated to events. Each construct comprises an action plot which contains
+the business logic.
+
+{\sc SmartTCL} performs dynamic online reconfigurations of the software components of
+a robot system. It exploits the configuration, parameterization and dynamic wiring 
+capabilities of components as provided by the {\sc SmartSoft} component model.
+{\sc SmartTCL} provides event-driven task execution (discrete states) and provides
+the bridge to continuous processing in robotics components (e.g. motion control, path
+planning).
+
+Designed as a domain-specific language, {\sc SmartTCL} makes it for system integrators 
+as simple as possible to execute, arrange and reuse behavior building blocks: \mbox{(i) new}
+task plots can be composed out of existing ones based on hierarchical, sequential and parallel 
+orderings (preserving a black-box view on a task block without requiring to inspect its internal
+and further decompositions and refinements), \mbox{(ii) configurations} required to execute
+basic behaviors and tasks can easily be expressed (hiding the complexity of putting them into 
+operation, monitoring all the involved software components and properly reacting to asynchronous
+events). 
+
+In its current implementation, {\sc SmartTCL} is an internal DSL within LISP. This way, it
+exploits the dynamic features of the LISP language (runtime interpretation of at runtime generated
+task-net expansions). It also exploits the general purpose language constructs in the implementation
+of action plots. {\sc SmartTCL} is being used in scenarios like {\em cleaning up the table},
+{\em Robocup@Home} and {\em make coffee}.
+
+\subsection{SmartSoft}
+
+{\sc SmartSoft} \cite{schlegel-jars, schlegel-star} is a service-oriented 
+component-based approach. Its component model is represented as meta-model 
+called {\sc SmartMARS} \cite{Schlegel2009}. This meta-model is the basis for 
+the Eclipse-based {\sc SmartMDSD} model-driven software development toolchain
+\footnote{http://smart-robotics.sf.net}.
+
+The basic idea behind {\sc SmartSoft} is to master the component hull. The {\sc SmartSoft} 
+component model provides a small and fixed set of communication patterns out of which all 
+externally visible ports of a component are composed. The communication patterns cover 
+request/response as well as publish/subscribe interactions. They can be customized by 
+the type of data to be transmitted but always behave according to the predefined semantics
+independently of the chosen implementational technology (e.g. the underlying middleware). 
+Besides user-definable ports, the {\sc SmartSoft} component model comprises standardized 
+ports for the configuration of a component, dynamic wiring of its ports, introspection of 
+components for diagnostic purposes and a port for activation / deactivation of its component 
+services.
+
+{\sc SmartSoft} addresses {\em separation of roles} (framework builder, component builder, 
+system integrator, end user) as well as {\em separation of concerns} (computation, communication,
+configuration, coordination) in robotics. Mastering the component hull allows a clear separation 
+e.g. between the roles of a component developer (inside view of a component) and a system integrator 
+(black box view on a component). Using a MDSD-approach enforces these roles and provides stable 
+interfaces independently of the used implementational technology. Separation of roles is important 
+towards reuse of software building blocks in robotics and towards sharing efforts according to 
+standard role models as can be found in any successful market. Separation of concerns is important
+to decouple orthogonal aspects, e.g. be able to replace a certain middleware by another one better
+matching the specifc needs.
+
+\subsection{SMACH}
+
+SMACH \cite{Smach:2011ys} aims to rapidly compose complex robot behaviors out of primitive ones. It is based on the concept of hierarchical concurrent state machines. SMACH is implemented as a language extension of {\em Python} and integrated into {\em ROS} \cite{ros}. It focuses on rapid prototyping of robot behaviors and is, for example, used in the {\em PR2} robot as task coordinatior for scenarios like playing pool and fetching beer from a refridgerator. SMACH executions can be graphically visualized. 
+
+The state machine of SMACH is not event-driven. Instead, each state comprises an action-plot which executed until it  terminates with a return-message. Depending on that message, transitions into next states are performed. SMACH can be seen as a DSL which provides that particular variant of a state machine for robotics users.
+
+\subsection{V$^3$CMM}
+
+The 3-View Component Meta-Model (V$^3$CMM) \cite{JOSER10} aims to provide designers with an expressive 
+yet simple platform-independent modeling language for component-based application design. The main design 
+drivers behind V$^3$CMM are simplicity, economy of concepts, and component reuse. V$^3$CMM is aimed at 
+allowing designers (1) to model high-level reusable components, including both their structural and 
+behavioral facets (modeling for reuse); (2) to build complex platform-independent designs up from the 
+previous components (modeling by reuse); and (3) to automatically translate these high-level designs 
+into lower level models or into different implementations, isolating functionality from platform  details. 
+It is worth noting that, although V$^3$CMM contains no robotics (neither other domain) specific concepts, 
+it has been tested and used mainly in robotics and in a few other (somehow affine) domains such as 
+Wireless Sensors and Actuators Networks (WSAN) \cite{IJCIS07} or Home Automation Systems \cite{IEEESoftware09}. 
+Currently, V$^3$CMM is being extended to enable the specification of real-time constraints. Regarding the 
+tools supporting V$^3$CMM, new textual model editors with advanced model validation and syntax completion 
+facilities are being developed, as well as new model transformations addressing different target implementation 
+frameworks. In parallel, there is some work in progress heading towards achieving V$^3$CMM model execution 
+(or runtime interpretation), as an alternative to translation into executable code \cite{ROSYM10}.
+
 % section Existing_Robotics_Domain-Specific_Languages (end)
 
 \bibliography{DSLRobChapter}
