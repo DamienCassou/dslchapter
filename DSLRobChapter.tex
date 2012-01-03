@@ -63,7 +63,7 @@ Player-Stage configuration files\cite{Collett:2005bq}
 
 \subsection{SmartTCL}
 
-{\sc SmartTCL} \cite{schlegel-smarttcl} is a task coordination language for robotics. Task 
+{\sc SmartTCL} \cite{Steck:2010vn} is a task coordination language for robotics. Task 
 coordination is needed in robotics to manage the huge amount of execution variants occuring 
 due to open-ended environments. {\sc SmartTCL} supports hierarchical task representations.
 At run-time, a task-tree is dynamically created and modified depending on situation and
@@ -96,9 +96,9 @@ of action plots. {\sc SmartTCL} is being used in scenarios like {\em cleaning up
 
 \subsection{SmartSoft}
 
-{\sc SmartSoft} \cite{schlegel-jars, schlegel-star} is a service-oriented 
+{\sc SmartSoft} \cite{Schlegel:2006uq, Schlegel:2007kx} is a service-oriented 
 component-based approach. Its component model is represented as meta-model 
-called {\sc SmartMARS} \cite{Schlegel2009}. This meta-model is the basis for 
+called {\sc SmartMARS} \cite{Schlegel:2009fk}. This meta-model is the basis for 
 the Eclipse-based {\sc SmartMDSD} model-driven software development toolchain
 \footnote{http://smart-robotics.sf.net}.
 
@@ -126,7 +126,7 @@ matching the specifc needs.
 
 \subsection{SMACH}
 
-SMACH \cite{Smach:2011ys} aims to rapidly compose complex robot behaviors out of primitive ones. It is based on the concept of hierarchical concurrent state machines. SMACH is implemented as a language extension of {\em Python} and integrated into {\em ROS} \cite{ros}. It focuses on rapid prototyping of robot behaviors and is, for example, used in the {\em PR2} robot as task coordinatior for scenarios like playing pool and fetching beer from a refridgerator. SMACH executions can be graphically visualized. 
+SMACH \cite{Smach:2011ys} aims to rapidly compose complex robot behaviors out of primitive ones. It is based on the concept of hierarchical concurrent state machines. SMACH is implemented as a language extension of {\em Python} and integrated into {\em ROS} \footnote{\url{http://www.ros.org/}}. It focuses on rapid prototyping of robot behaviors and is, for example, used in the {\em PR2} robot as task coordinatior for scenarios like playing pool and fetching beer from a refridgerator. SMACH executions can be graphically visualized. 
 
 The state machine of SMACH is not event-driven. Instead, each state comprises an action-plot which executed until it  terminates with a return-message. Depending on that message, transitions into next states are performed. SMACH can be seen as a DSL which provides that particular variant of a state machine for robotics users.
 
